@@ -6,6 +6,7 @@ from django.conf import settings
 router = routers.DefaultRouter()
 router.register(r'login', LoginViewSet)
 router.register(r'store', StoreViewSet)
+router.register(r'bigmarket', BigmarketViewSet)
 
 urlpatterns = router.urls
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

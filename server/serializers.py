@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404
 class StoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Store
-        fields = ('id', 'name', 'location', 'desc', 'mainpic', 'pic1', 'pic2', 'pic3', 'clap')
+        fields = ('id', 'name', 'location', 'desc', 'mainpic', 'categ', 'period', 'hour', 'website', 'pic1', 'pic2', 'pic3', 'clap')
         extra_kwargs = {'id': {'validators': []}}
 
 
@@ -18,4 +18,11 @@ class LoginSerializer(WritableNestedModelSerializer):
     class Meta:
         model = Login
         fields = ('id', 'pw', 'email', 'nickname', 'store')
+        extra_kwargs = {'id': {'validators': []}}
+
+class BigmarketSerializer(WritableNestedModelSerializer):
+    store = StoreSerializer(many=True, required=False)
+    class Meta:
+        model = Bigmarket
+        fields = ('id', 'name', 'location', 'pic', 'store')
         extra_kwargs = {'id': {'validators': []}}

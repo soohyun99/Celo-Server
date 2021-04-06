@@ -12,3 +12,7 @@ class LoginViewSet(viewsets.ModelViewSet):
 class StoreViewSet(viewsets.ModelViewSet):
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
+
+class BigmarketViewSet(viewsets.ModelViewSet):
+    queryset = Bigmarket.objects.all()
+    serializer_class = BigmarketSerializer
