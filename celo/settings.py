@@ -29,7 +29,7 @@ SECRET_KEY = secrets['SECRETKEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-3-34-14-143.ap-northeast-2.compute.amazonaws.com', 'http://localhost:8080/']
+ALLOWED_HOSTS = ['ec2-3-34-14-143.ap-northeast-2.compute.amazonaws.com', 'http://localhost:8080/', '127.0.0.1']
 
 # Application definition
 
@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'server'
+    'server',
+    'knox'
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+}
