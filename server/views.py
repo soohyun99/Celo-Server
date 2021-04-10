@@ -17,9 +17,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views import View
 from django.http import JsonResponse
 
-#class LoginViewSet(viewsets.ModelViewSet):
-#    queryset = Login.objects.all()
-#    serializer_class = LoginSerializer
+class LoginViewSet(viewsets.ModelViewSet):
+    queryset = Login.objects.all()
+    serializer_class = LoginSerializer
 #    if Login.objects.filter(id=id).exists():
 #        account = Login.objects.get(id=id)
 #        if account.pw == pw:

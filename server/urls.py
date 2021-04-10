@@ -6,7 +6,7 @@ from django.conf.urls import url
 from django.urls import path, include
 
 router = routers.DefaultRouter()
-#router.register(r'login', LoginViewSet)
+router.register(r'login', LoginViewSet)
 router.register(r'store', StoreViewSet)
 router.register(r'bigmarket', BigmarketViewSet)
 #router.register(r'create', CreateView.as_view())
