@@ -13,6 +13,6 @@ router.register(r'bigmarket', BigmarketViewSet)
 urlpatterns = router.urls
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns = [
-    path('/create', CreateView.as_view()),
-    path('/login', LoginView.as_view())
+    path('create', CreateView.as_view()),
+    path('login', LoginView.as_view())
 ]
