@@ -52,9 +52,7 @@ class LoginView(View):
         data = json.loads(request.body)
         Login(
             id=data['id'],
-            pw=data['pw'],
-            email=data['email'],
-            nickname=data['nickname']
+            pw=data['pw']
         )
         if Login.objects.filter(id = data['id'], pw = data['pw']).exists() == True :
             return JsonResponse({"message": "로그인에 성공하셨습니다."}, status = 200)
