@@ -13,6 +13,7 @@ from server.models import *
 from rest_framework import views
 import json
 from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 from django.views import View
 from django.http import JsonResponse
@@ -26,8 +27,9 @@ class LoginViewSet(viewsets.ModelViewSet):
 #            return JsonResponse({'message': 'Login SUCCESS'}, status=200)
 #        return HttpResponse(status=401)
 
-@csrf_exempt
+
 class CreateView(View):
+    @method_decorator(csrf_exempt)
     def post(self, request):
         data = json.loads(request.body)
         Login(
@@ -46,8 +48,8 @@ class CreateView(View):
         login = Login.objects.values()
         return JsonResponse({"data": list(login)}, status=200)
 
-@csrf_exempt
 class LoginView(View):
+    @method_decorator(csrf_exempt)
     def post(self, request):
         data = json.loads(request.body)
         Login(
