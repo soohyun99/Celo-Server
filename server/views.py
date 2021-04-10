@@ -26,8 +26,8 @@ class LoginViewSet(viewsets.ModelViewSet):
 #            return JsonResponse({'message': 'Login SUCCESS'}, status=200)
 #        return HttpResponse(status=401)
 
+@csrf_exempt
 class CreateView(View):
-    @csrf_exempt
     def post(self, request):
         data = json.loads(request.body)
         Login(
@@ -46,8 +46,8 @@ class CreateView(View):
         login = Login.objects.values()
         return JsonResponse({"data": list(login)}, status=200)
 
+@csrf_exempt
 class LoginView(View):
-    @csrf_exempt
     def post(self, request):
         data = json.loads(request.body)
         Login(
