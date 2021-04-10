@@ -7,13 +7,13 @@ class ProduceFilter(FilterSet):
     id = filters.CharFilter(method='id_filter')
 #    pw = filters.CharFilter(method='pw_filter')
 
-    def id_filter(self, queryset, id, pw, value):
-        id = self.request.query_params.get(id, value)
-        pw = self.request.query_params.get(pw, value)
+    def id_filter(self, queryset, id, pw):
+        id = self.request.query_params.get(id)
+        pw = self.request.query_params.get(pw)
         if id is None:
             return 0
         elif id is not None:
-            queryset = queryset.filter(id__icontains=value)
+            queryset = queryset.filter()
             if queryset.pw == pw :
                 return 1
             else :
