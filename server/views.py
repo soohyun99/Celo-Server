@@ -29,7 +29,6 @@ class LoginViewSet(viewsets.ModelViewSet):
 
 
 class CreateView(View):
-    @method_decorator(csrf_exempt)
     def post(self, request):
         data = json.loads(request.body)
         Login(
@@ -49,14 +48,11 @@ class CreateView(View):
         return JsonResponse({"data": list(login)}, status=200)
 
 class LoginView(View):
-    @method_decorator(csrf_exempt)
     def post(self, request):
         data = json.loads(request.body)
         Login(
             id=data['id'],
-            pw=data['pw'],
-            email=data['email'],
-            nickname=data['nickname']
+            pw=data['pw']
         )
 
         if Login.objects.filter(id = data['id'], pw = data['pw']).exists() == True :
