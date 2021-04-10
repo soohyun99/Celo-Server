@@ -7,18 +7,16 @@ from django.urls import path, include
 
 router = routers.DefaultRouter()
 #router.register(r'login', LoginViewSet)
-#router.register(r'store', StoreViewSet)
-#router.register(r'bigmarket', BigmarketViewSet)
+router.register(r'store', StoreViewSet)
+router.register(r'bigmarket', BigmarketViewSet)
 #router.register(r'create', CreateView.as_view())
 #router.register(r'login', LoginView.as_view())
+urlpatterns = [
+    url(r'^create', CreateView.as_view()),
+    url(r'^login', LoginView.as_view())
+]
 
-urlpatterns = router.urls
+urlpatterns += router.urls
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-urlpatterns = [
-    path(r'create', CreateView.as_view()),
-    path(r'login', LoginView.as_view()),
-    path(r'store', StoreViewSet),
-    path(r'bigmarket', BigmarketViewSet)
-]
 
