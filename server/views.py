@@ -12,6 +12,7 @@ from server.filter import *
 from server.models import *
 from rest_framework import views
 import json
+from django.views.decorators.csrf import csrf_exempt
 
 from django.views import View
 from django.http import JsonResponse
@@ -26,6 +27,7 @@ from django.http import JsonResponse
 #        return HttpResponse(status=401)
 
 class CreateView(View):
+    @csrf_exempt
     def post(self, request):
         data = json.loads(request.body)
         Login(
@@ -45,6 +47,7 @@ class CreateView(View):
         return JsonResponse({"data": list(login)}, status=200)
 
 class LoginView(View):
+    @csrf_exempt
     def post(self, request):
         data = json.loads(request.body)
         Login(
