@@ -13,7 +13,7 @@ class ProduceFilter(FilterSet):
         if id is None:
             return 0
         elif id is not None:
-            queryset = queryset.filter()
+            queryset = queryset.filter(id)
             if queryset.pw == pw :
                 return 1
             else :
