@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser
 from django_filters.rest_framework import DjangoFilterBackend
 from server.filter import *
+from server.models import *
 
 class LoginViewSet(viewsets.ModelViewSet):
     queryset = Login.objects.all()
