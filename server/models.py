@@ -23,7 +23,7 @@ class Login(models.Model):
     pw = models.CharField(max_length=20)
     email = models.TextField()
     nickname = models.TextField()
-    store = models.ManyToManyField(Store, blank=True)
+    store = models.ForeignKey(Store, related_name="log_store", on_delete=models.CASCADE, blank=True)
 
 class Bigmarket(models.Model):
     id = models.AutoField(primary_key=True)

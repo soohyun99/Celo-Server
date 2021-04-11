@@ -15,15 +15,15 @@ class StoreSerializer(serializers.ModelSerializer):
         extra_kwargs = {'id': {'validators': []}}
 
 
-class LoginSerializer(WritableNestedModelSerializer):
-    store = StoreSerializer(many=True, required=False)
+class LoginSerializer(serializers.ModelSerializer):
+#    store = StoreSerializer(many=True, required=False)
     class Meta:
         model = Login
         fields = ('id', 'pw', 'email', 'nickname', 'store')
         extra_kwargs = {'id': {'validators': []}}
 
-class BigmarketSerializer(WritableNestedModelSerializer):
-    store = StoreSerializer(many=True, required=False)
+class BigmarketSerializer(serializers.ModelSerializer):
+#    store = StoreSerializer(many=True, required=False)
     class Meta:
         model = Bigmarket
         fields = ('id', 'name', 'location', 'pic', 'store')
