@@ -19,7 +19,7 @@ class LoginSerializer(serializers.ModelSerializer):
 #    store = StoreSerializer(many=True, required=False)
     class Meta:
         model = Login
-        fields = ('id', 'pw', 'email', 'nickname', 'store')
+        fields = ('id', 'pw', 'email', 'nickname')
         extra_kwargs = {'id': {'validators': []}}
 
 class BigmarketSerializer(serializers.ModelSerializer):
