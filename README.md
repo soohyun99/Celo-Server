@@ -1,6 +1,7 @@
 # Mark-at! Server
 
 For the Celo Hackathon [Make it Mobile Hackathon - Celo](https://gitcoin.co/hackathon/mobile-celo/onboard)
+
 This repository contains the Django Server for the [Mark-at!](https://github.com/BEYOND-Ewha-Yonsei/Mark-at) dApp.
 
 ## 🍀 Commit Rules
