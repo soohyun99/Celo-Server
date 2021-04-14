@@ -16,7 +16,7 @@ class Store(models.Model):
     pic1 = models.ImageField(blank=True, upload_to="images", null=True)
     pic2 = models.ImageField(blank=True, upload_to="images", null=True)
     pic3 = models.ImageField(blank=True, upload_to="images", null=True)
-    clap = models.IntegerField()
+    clap = models.IntegerField(null=True)
 
 class Login(models.Model):
     id = models.CharField(max_length=20, primary_key=True)
